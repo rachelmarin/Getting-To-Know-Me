@@ -8,5 +8,4 @@ use Rack::MethodOverride
 
 use SessionController
 use SignController
-
 run ApplicationController

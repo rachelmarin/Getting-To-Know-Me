@@ -16,11 +16,11 @@
 
   </head>
   <body> 
-   <nav>
-    <div class="nav-wrapper container">
-      <a href="#!" class="brand-logo center">Getting To Know Me!</a>
-      <ul class="left hide-on-med-and-down">
-        <% if !is_logged_in? %>
+    <nav class="#ce93d8 purple lighten-3">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">Getting To Know Me</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+      <% if !is_logged_in? %>
             <li><a href="/login">Login</a></li>
             <li><a href="/signup">Signup</a></li>
           <% else %>
@@ -28,19 +28,19 @@
         <li><a href="/signs">My Signs</a></li>
         <li><a href="/signs/new">What Are My Signs?</a></li>
        <% end %>
-       </ul>
-     </div>
-    </nav>
-     
+      </ul>
+    </div>
+  </nav>
+    
       <div class="container">
         <%= yield %>
       </div>
+      
       <footer class="branding">
         <small>&copy; 2021 <strong>GettingToKnowMe</strong></small>
       </footer>
     </div>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <!--[if lt IE 7]>
       <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
       <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
