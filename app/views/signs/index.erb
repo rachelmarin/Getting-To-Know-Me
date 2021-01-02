@@ -1,0 +1,9 @@
+<h3 class="lavender-text text-lighter-3">Signs</h3>
+
+<p>Recently Viewed: <%= @sign ? @sign.title : "Haven't viewed any signs." %></p>
+
+<ul>
+  <% @signs.each do |sign| %>
+    <li><a href="/signs/<%= sign.id %>"><%= sign.title %></a></li>
+  <% end %>
+</ul>
