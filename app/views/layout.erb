@@ -17,8 +17,8 @@
   </head>
   <body> 
    <nav>
-    <div class="nav-wrapper">
-      <a href="#!" class="brand-logo center">Logo</a>
+    <div class="nav-wrapper container">
+      <a href="#!" class="brand-logo center">Getting To Know Me!</a>
       <ul class="left hide-on-med-and-down">
         <% if !is_logged_in? %>
             <li><a href="/login">Login</a></li>
@@ -26,7 +26,8 @@
           <% else %>
         <li><a href="/logout">Logout</a></li>
         <li><a href="/signs">My Signs</a></li>
-        <li class="/signs/new">What Are My Signs? </a></li>
+        <li><a href="/signs/new">What Are My Signs?</a></li>
+       <% end %>
        </ul>
      </div>
     </nav>

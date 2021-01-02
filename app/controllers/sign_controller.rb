@@ -1,4 +1,4 @@
-class SignsController < ApplicationController
+class SignController < ApplicationController
     get '/signs' do
       @signs = sign.all
       @sign = sign.find_by_id(session[:sign_id])

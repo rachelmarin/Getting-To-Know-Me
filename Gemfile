@@ -12,6 +12,8 @@ gem 'pry'
 gem 'bcrypt'
 gem 'tux'
 gem 'dotenv'
+gem 'zodiac'
+gem 'shengxiao'
 
 group :test do
   gem 'rspec'
