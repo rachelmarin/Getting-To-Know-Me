@@ -1,4 +1,5 @@
 class SessionController < ApplicationController
+        
     get '/signup' do
       
       erb :'sessions/signup'
@@ -19,11 +20,11 @@ class SessionController < ApplicationController
     end
   
     post '/login' do
-      user = User.find_by_username(params[:user][:username])
+      user = User.find_by_username(params[:username])
      
-      if user && user.authenticate(params[:user][:password])
+      if user && user.authenticate(params[:password])
         session[:user_id] = user.id
-        redirect "/signs/new"
+        redirect "/signs"
       else
         redirect "/login"
       end
