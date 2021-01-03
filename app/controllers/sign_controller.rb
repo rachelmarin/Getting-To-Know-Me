@@ -32,8 +32,6 @@ class SignController < ApplicationController
       
       @sign = Sign.new(params[:sign])
 
-      # Date.new(2011, 1, 1).zodiac_sign
-      # Date.new(2014, 3, 20).chinese_zodiac_sign
       if @sign.save
         redirect '/signs'
       else

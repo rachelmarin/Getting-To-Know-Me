@@ -4,5 +4,4 @@ class Sign < ActiveRecord::Base
   zodiac_reader :date_of_birth
 
   
-  
 end
