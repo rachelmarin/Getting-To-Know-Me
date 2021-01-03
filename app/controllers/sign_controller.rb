@@ -3,11 +3,10 @@ class SignController < ApplicationController
   require 'shengxiao'
   
     get '/signs' do
-      
+    redirect_if_not_logged_in      
       @signs = Sign.all
       @sign = Sign.find_by_id(session[:sign_id])
       erb :'/signs/index'
-
     end
   
     get '/signs/new' do
@@ -16,7 +15,6 @@ class SignController < ApplicationController
     
     get '/signs/:id' do
       find_sign
-     
       session[:sign_id] = @sign.id if @sign
       redirect_if_sign_not_found
       erb :'signs/show'
@@ -25,6 +23,7 @@ class SignController < ApplicationController
     get '/signs/:id/edit' do
       find_sign
       redirect_if_sign_not_found
+      redirect_if_not_owner
       erb :'signs/edit'
     end
     
