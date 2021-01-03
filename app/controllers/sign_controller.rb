@@ -1,8 +1,13 @@
 class SignController < ApplicationController
+  require 'zodiac'
+  require 'shengxiao'
+  
     get '/signs' do
-      @signs = sign.all
-      @sign = sign.find_by_id(session[:sign_id])
-      erb :'signs/index'
+      
+      @signs = Sign.all
+      @sign = Sign.find_by_id(session[:sign_id])
+      erb :'/signs/index'
+
     end
   
     get '/signs/new' do
@@ -11,6 +16,7 @@ class SignController < ApplicationController
     
     get '/signs/:id' do
       find_sign
+     
       session[:sign_id] = @sign.id if @sign
       redirect_if_sign_not_found
       erb :'signs/show'
@@ -23,9 +29,12 @@ class SignController < ApplicationController
     end
     
     post '/signs' do
-      sign = Sign.new(params[:sign])
       
-      if sign.save
+      @sign = Sign.new(params[:sign])
+
+      # Date.new(2011, 1, 1).zodiac_sign
+      # Date.new(2014, 3, 20).chinese_zodiac_sign
+      if @sign.save
         redirect '/signs'
       else
         redirect '/signs/new'
@@ -50,7 +59,7 @@ class SignController < ApplicationController
       
       private
       def find_sign
-        @sign = sign.find_by_id(params[:id])
+        @sign = Sign.find_by_id(params[:id])
       end
       
       def redirect_if_sign_not_found

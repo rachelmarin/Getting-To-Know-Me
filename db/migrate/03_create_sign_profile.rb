@@ -1,13 +1,14 @@
 class CreateSignProfile < ActiveRecord::Migration
     def change
       create_table :signs do |t|
+        t.integer :user_id
         t.string :name
         t.date :date_of_birth
-        t.string :zodiac_sign
-        t.string :chinese_zodiac_sign
+        t.string :z_s
+        t.string :c_z_s
         t.string :birthstone
-       
-        t.timestamps null: false
+
+        
     end
   end
 end

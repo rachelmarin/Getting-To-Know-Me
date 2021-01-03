@@ -8,7 +8,7 @@ class SessionController < ApplicationController
       user = User.new(params[:user])
       if user.save
         session[:user_id] = user.id
-        redirect "/signs"
+        redirect "/signs/new"
       else
         redirect "/signup"
       end
@@ -23,7 +23,7 @@ class SessionController < ApplicationController
      
       if user && user.authenticate(params[:user][:password])
         session[:user_id] = user.id
-        redirect "/signs"
+        redirect "/signs/new"
       else
         redirect "/login"
       end
