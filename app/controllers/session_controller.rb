@@ -1,21 +1,22 @@
 class SessionController < ApplicationController
         
     get '/signup' do
-      
+        redirect_if_logged_in
       erb :'sessions/signup'
     end
   
     post '/signup' do
-      user = User.new(params[:user])
+      user = User.new(params)
       if user.save
         session[:user_id] = user.id
-        redirect "/signs/new"
+        redirect "/signs"
       else
         redirect "/signup"
       end
     end
   
     get '/login' do
+      redirect_if_logged_in
       erb :'sessions/login'
     end
   
